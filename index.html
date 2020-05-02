@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Hat</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <h1>Hogwarts School of Witchcraft and Wizardry</h1>
+  <!-- Main Box -->
+  <div class="container">
+    <div id="hello" class="panel">
+    <div class="jumbotron">
+      <h1 class="display-4">The Sorting Hat</h1>
+      <p class="lead">
+        "Oh you may not think I'm pretty,
+        but don't judge on what you see,
+        I'll eat myself if you can find
+        a smarter hat than me.
+        
+        You can keep your bowlers black,
+        your top hats sleek and tall,
+        for I'm the Hogwarts Sorting Hat
+        and I can cap them all."</p>
+      <hr class="my-4">
+      <p> "There's nothing hidden in your head
+        The Sorting Hat can't see,
+        so try me on and I will tell you
+        where you ought to be."</p>
+      <p class="lead">
+        <button class="btn btn-primary btn-lg" id="tryButton">Try Me On</button>
+      </p>
+      </div>
+    </div>
+  <!-- form -->
+      <div id="sort" class="panel" hidden>
+          <div class="form-group mb-2">
+            <h2>Student Name</h2>
+          </div>
+          <form class="form-inline"></form>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="studentName" class="sr-only">Luna Lovegood</label>
+            <input type="name" class="form-control" id="studentName" placeholder="Luna Lovegood">
+          </div>
+          <button type="submit" id="sortButton" class="btn btn-primary mb-2">Sort</button>
+        </form>
+      </div>
+      
+    
+
+  <!-- sorted students -->
+  <!-- <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Student Name</h5>
+      <p class="card-text">House</p>
+      <a href="#" class="btn btn-warning">Expel</a>
+    </div>
+    </div> -->
+
+
+  
+  <script src="main.js"></script>
+</body>
+</html>

@@ -2,3 +2,8 @@ body {
   background-color: slategray;
   text-align: center;
 }
+
+#sortedContainer {
+  display: flex;
+  flex-flow: row wrap;
+}

@@ -1,5 +1,3 @@
-console.log('hp')
-
 document.getElementById("tryButton")
         .addEventListener("click", function() {
   document.getElementById("hello").hidden = true;
@@ -23,30 +21,34 @@ const addStudents = () => {
   // id: studentId.toString(10)
   });
   console.log(studentArray)
+  buildSortedCard(studentArray)
 };
 
 
+const printToDom = (selector, textToPrint) => {
+  const selectedDiv = document.querySelector(selector);
+  selectedDiv.innerHTML = textToPrint;
+}
 
+const buildSortedCard = (studentCollection) => {
+  domString = '';
+  for (let i = 0; i < studentCollection.length; i++) { 
+  
 
-
-
-
-
-
-
-
-const buildSortedCard = (studentName, houseName) => {
-
-  let card = `
-  <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">${studentName}</h5>
-    <p class="card-text">${houseName}</p>
-    <a href="#" class="btn btn-warning">Expel</a>
-  </div>
-  </div>
-</div>`
-  }
+  domString += `
+    <div class="card" id="${studentCollection[i].house}">
+    <div class="mt-3 card-header">
+      ${studentCollection[i].house}
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">${studentCollection[i].name}</h4>
+      <a href="#" class="btn btn-warning" id="expelButton">Expel</a>
+    </div>
+    </div>
+  `
+  };
+  printToDom('#sortedContainer', domString);
+};
 
   const clickEvents = () => {
     document.getElementById('sortButton').addEventListener('click', addStudents);
@@ -54,6 +56,7 @@ const buildSortedCard = (studentName, houseName) => {
 
   const init = () => {
     clickEvents();
+    buildSortedCard(studentArray);
   }
   
   init();

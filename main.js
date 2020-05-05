@@ -6,6 +6,8 @@ document.getElementById("tryButton")
 
 let studentArray = [];
 
+let studentIdNumber = 0;
+
 const houses = ["Gryffindor", "Hufflepuff", "Ravenclaw", "Slytherin"]
 // select a random house from houses ^ 
 
@@ -18,12 +20,40 @@ const addStudents = () => {
   const studentName = document.getElementById("studentName").value;
     studentArray.unshift({name: studentName, 
     house: chosenHouse(),
-  // id: studentId.toString(10)
+    id: studentIdNumber
   });
+  studentIdNumber++
   console.log(studentArray)
   buildSortedCard(studentArray)
+  const expelBtns = document.getElementsByClassName('expel');
+    for (let i = 0; i < expelBtns.length; i++) {  
+    expelBtns[i].addEventListener('click', expelStudent);
+    };
 };
 
+const nameEntered = () => {
+  if (document.getElementById("studentName").value === '') {
+    alert("Enter Name");
+    } else {
+    addStudents();
+    document.getElementById("studentName").value = '';
+    };
+  };
+
+  const expelStudent = (e) => {
+    const buttonId = e.target.id;
+    let studentIndex = 0;
+    
+    for ( let i = 0; i < studentArray.length; i++ ) {
+        if ( studentArray[i].studentId === buttonId ) {
+    
+            studentIndex += i;
+        }
+      }
+        studentArray.splice( studentIndex, 1);
+        console.log('expel function', studentArray);
+        buildSortedCard(studentArray);
+  }
 
 const printToDom = (selector, textToPrint) => {
   const selectedDiv = document.querySelector(selector);
@@ -32,8 +62,7 @@ const printToDom = (selector, textToPrint) => {
 
 const buildSortedCard = (studentCollection) => {
   domString = '';
-  for (let i = 0; i < studentCollection.length; i++) { 
-  
+  for (let i = 0; i < studentCollection.length; i++) {  
 
   domString += `
     <div class="card" id="${studentCollection[i].house}">
@@ -42,7 +71,7 @@ const buildSortedCard = (studentCollection) => {
     </div>
     <div class="card-body">
       <h4 class="card-title">${studentCollection[i].name}</h4>
-      <a href="#" class="btn btn-warning" id="expelButton">Expel</a>
+      <button class="btn btn-warning expel" id="${studentCollection[i].id}">Expel</button>
     </div>
     </div>
   `
@@ -51,7 +80,7 @@ const buildSortedCard = (studentCollection) => {
 };
 
   const clickEvents = () => {
-    document.getElementById('sortButton').addEventListener('click', addStudents);
+    document.getElementById('sortButton').addEventListener('click', nameEntered);
   };
 
   const init = () => {

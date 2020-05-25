@@ -21,6 +21,7 @@ Sorting Hat is an example project using bootstrap forms, building arrays, print 
 ## TODO/Feature Request
 - [ ] list expelled students as Voldemort's Army
 - [ ] alter appearance of VA to stand out from other students
+- [ ] make cards a uniform size
 
 code block example:
 ```js

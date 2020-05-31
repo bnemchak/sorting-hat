@@ -7,8 +7,8 @@ Sorting Hat is an example project using bootstrap forms, building arrays, print 
 * Delete single cards from array on a button click
 
 
-## Screenshots
-![Main View](./images/sorting-hat.png)
+<!-- ## Screenshots
+![Main View](./images/sorting-hat.png) -->
 
 ## How To Run
 1. Clone down this repo
